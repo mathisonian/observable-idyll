@@ -1,0 +1,47 @@
+[meta title:"Observable Idyll" description:"Short description of your project" /]
+
+[Header
+  title:"Idyll + Observable"
+  subtitle:"How to Embed Observable Notebooks in Idyll Articles"
+  author:"Matthew Conlen"
+  authorLink:"https://twitter.com/mathisonian" /]
+
+
+Displaying chart from [https://beta.observablehq.com/@mathisonian/d3-change-line-chart](https://beta.observablehq.com/@mathisonian/d3-change-line-chart).
+
+
+Observable Embed Code:
+
+```
+[Observable
+  notebook:"https://beta.observablehq.com/@mathisonian/d3-change-line-chart"
+  showCells:`['chart', 'height']`
+  variables:`{
+    lineWidth: lineWidth,
+    height: height
+  }` /]
+```
+
+
+[var name:"lineWidth" value:5 /]
+
+[var name:"height" value:300 /]
+
+Idyll Variable Controls:
+
+Line Width: [Range value:lineWidth min:0 max:100 /]
+Height: [Range value:height min:0 max:1000 /]
+
+[Observable
+  notebook:""
+  showCells:`['chart', 'height']`
+  variables:`{
+    lineWidth: lineWidth,
+    height: height
+  }` /]
+
+
+
+
+This is still a work in progress - for example, it doesn't actually pull the notebook
+from that URL yet, but requires a local copy. I'm working on fixes for this.

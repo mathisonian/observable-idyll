@@ -1,0 +1,23 @@
+{
+  "name": "observable-idyll",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "idyll index.idyll --theme github --layout centered --css styles.css --watch",
+    "build": "idyll index.idyll --no-minify=true --theme github --layout centered --css styles.css",
+    "deploy": "npm run build && gh-pages -d ./build"
+  },
+  "dependencies": {
+    "@observablehq/notebook-runtime": "^1.1.1",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "d3": "^4.0.0",
+    "d3-fetch": "^1.1.0",
+    "idyll": "^2.0.0",
+    "idyll-d3-component": "^2.0.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.12.0"
+  }
+}
