@@ -3,7 +3,7 @@ const {Runtime, Inspector, Library } = require("../lib/notebook-runtime");
 import notebook from "./notebooks/d3-change-line-chart";
 
 
-class CustomComponent extends React.Component {
+class Observable extends React.Component {
 
   componentDidMount() {
     const { runtime, main } = Runtime.load(notebook, Object.assign({}, new Library(), { width: 600 }), (variable) => {
@@ -29,4 +29,4 @@ class CustomComponent extends React.Component {
   }
 }
 
-module.exports = CustomComponent;
+module.exports = Observable;

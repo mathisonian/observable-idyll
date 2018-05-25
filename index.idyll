@@ -41,7 +41,9 @@ Height: [Range value:height min:0 max:1000 /]
   }` /]
 
 
-
-
 This is still a work in progress - for example, it doesn't actually pull the notebook
 from that URL yet, but requires a local copy. I'm working on fixes for this.
+
+The interesting bits that connect Idyll's reactive runtime to Observable's can be
+found [here](https://github.com/mathisonian/observable-idyll/blob/master/components/observable.js).
+
