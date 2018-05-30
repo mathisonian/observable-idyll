@@ -36109,6 +36109,85 @@ Header._idyll = {
 
 exports.default = Header;
 
+},{"react":"/Users/mathisonian/projects/idyll/idyll/node_modules/react/index.js"}],"/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/link.js":[function(require,module,exports){
+"use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.__esModule = true;
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var Link = function (_React$PureComponent) {
+  _inherits(Link, _React$PureComponent);
+
+  function Link(props) {
+    _classCallCheck(this, Link);
+
+    return _possibleConstructorReturn(this, _React$PureComponent.call(this, props));
+  }
+
+  Link.prototype.render = function render() {
+    var props = _extends({}, this.props);
+    if (props.url) {
+      props.href = props.url;
+    }
+    return _react2.default.createElement("a", props, this.props.text || this.props.children);
+  };
+
+  return Link;
+}(_react2.default.PureComponent);
+
+Link._idyll = {
+  name: "Link",
+  tagType: "closed",
+  props: [{
+    name: "text",
+    type: "string",
+    example: '"Link Text"'
+  }, {
+    name: 'url',
+    type: 'string',
+    example: '"https://some.url/"'
+  }]
+};
+
+exports.default = Link;
+
 },{"react":"/Users/mathisonian/projects/idyll/idyll/node_modules/react/index.js"}],"/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/range.js":[function(require,module,exports){
 "use strict";
 
@@ -40180,19 +40259,20 @@ arguments[4]["/Users/mathisonian/projects/idyll/idyll/node_modules/react/index.j
 },{"./cjs/react.development.js":"/Users/mathisonian/projects/observable-idyll/node_modules/react/cjs/react.development.js","./cjs/react.production.min.js":"/Users/mathisonian/projects/observable-idyll/node_modules/react/cjs/react.production.min.js"}],"__IDYLL_AST__":[function(require,module,exports){
 "use strict";
 
-module.exports = [["var", [["name", ["value", "lineWidth"]], ["value", ["value", 5]]], []], ["var", [["name", ["value", "height"]], ["value", ["value", 300]]], []], ["TextContainer", [], [["Header", [["title", ["value", "Idyll + Observable"]], ["subtitle", ["value", "How to Embed Observable Notebooks in Idyll Articles"]], ["author", ["value", "Matthew Conlen"]], ["authorLink", ["value", "https://twitter.com/mathisonian"]]], []], ["p", [], ["Displaying chart from ", ["a", [["href", ["value", "https://beta.observablehq.com/@mathisonian/d3-change-line-chart"]]], ["https://beta.observablehq.com/@mathisonian/d3-change-line-chart"]], "."]], ["p", [], ["This code embeds two cells from an observable notebook, and binds the value of cells ", ["code", [], ["lineWidth"]], " and ", ["code", [], ["height"]], " to Idyll variables of the same name."]], ["pre", [], [["code", [], ["[Observable\n  notebook:\"https://beta.observablehq.com/@mathisonian/d3-change-line-chart\"\n  showCells:`['chart', 'height']`\n  variables:`{\n    lineWidth: lineWidth,\n    height: height\n  }` /]"]]]], ["p", [], ["Idyll Variable Controls:"]], ["p", [], ["Line Width: ", ["Range", [["value", ["variable", "lineWidth"]], ["min", ["value", 0]], ["max", ["value", 100]]], []], "\nHeight: ", ["Range", [["value", ["variable", "height"]], ["min", ["value", 0]], ["max", ["value", 1000]]], []]]], ["Observable", [["notebook", ["value", ""]], ["showCells", ["expression", "['chart', 'height']"]], ["variables", ["expression", "{\n    lineWidth: lineWidth,\n    height: height\n  }"]]], []], ["p", [], ["The ", ["code", [], ["variables"]], " property defines how Idyll variables should be hooked up to Observable. In this\ncase, the notebook has cells named ", ["code", [], ["lineWidth"]], " and ", ["code", [], ["height"]], ", so we use our Idyll variables to set the value of the Observable cell of the same time."]], ["p", [], ["This is still a work in progress - for example, it doesn’t actually pull the notebook\nfrom that URL yet, but requires a local copy. I’m working on fixes for this."]], ["p", [], ["The interesting bits that connect Idyll’s reactive runtime to Observable’s can be\nfound ", ["a", [["href", ["value", "https://github.com/mathisonian/observable-idyll/blob/master/components/observable.js"]]], ["here"]], "."]], ["p", [], ["Full example code below:"]], ["pre", [], [["code", [], ["[var name:\"lineWidth\" value:5 /]\n[var name:\"height\" value:300 /]\n\nIdyll Variable Controls:\n\nLine Width: [Range value:lineWidth min:0 max:100 /]\nHeight: [Range value:height min:0 max:1000 /]\n\n[Observable\n  notebook:\"https://beta.observablehq.com/@mathisonian/d3-change-line-chart\"\n  showCells:`['chart', 'height']`\n  variables:`{\n    lineWidth: lineWidth,\n    height: height\n  }` /]"]]]]]]];
+module.exports = [["var", [["name", ["value", "lineWidth"]], ["value", ["value", 5]]], []], ["var", [["name", ["value", "height"]], ["value", ["value", 300]]], []], ["TextContainer", [], [["Header", [["title", ["value", "Idyll + Observable"]], ["subtitle", ["value", "How to Embed Observable Notebooks in Idyll Articles"]], ["author", ["value", "Matthew Conlen"]], ["authorLink", ["value", "https://twitter.com/mathisonian"]]], []], ["i", [], [["p", [], ["\n  If you don’t know what Idyll is, check out ", ["link", [["url", ["value", "https://idyll-lang.org/"]], ["text", ["value", "https://idyll-lang.org/"]]], []], " first."]]]], ["p", [], ["Displaying chart from ", ["a", [["href", ["value", "https://beta.observablehq.com/@mathisonian/d3-change-line-chart"]]], ["https://beta.observablehq.com/@mathisonian/d3-change-line-chart"]], "."]], ["p", [], ["This code embeds two cells from an observable notebook, and binds the value of cells ", ["code", [], ["lineWidth"]], " and ", ["code", [], ["height"]], " to Idyll variables of the same name."]], ["pre", [], [["code", [], ["[Observable\n  notebook:\"https://beta.observablehq.com/@mathisonian/d3-change-line-chart\"\n  showCells:`['chart', 'height']`\n  variables:`{\n    lineWidth: lineWidth,\n    height: height\n  }` /]"]]]], ["p", [], ["Idyll Variable Controls:"]], ["p", [], ["Line Width: ", ["Range", [["value", ["variable", "lineWidth"]], ["min", ["value", 0]], ["max", ["value", 100]]], []], "\nHeight: ", ["Range", [["value", ["variable", "height"]], ["min", ["value", 0]], ["max", ["value", 1000]]], []]]], ["Observable", [["notebook", ["value", ""]], ["showCells", ["expression", "['chart', 'height']"]], ["variables", ["expression", "{\n    lineWidth: lineWidth,\n    height: height\n  }"]]], []], ["p", [], ["The ", ["code", [], ["variables"]], " property defines how Idyll variables should be hooked up to Observable. In this\ncase, the notebook has cells named ", ["code", [], ["lineWidth"]], " and ", ["code", [], ["height"]], ", so we use our Idyll variables to set the value of the Observable cell of the same time."]], ["p", [], ["This is still a work in progress - for example, it doesn’t actually pull the notebook\nfrom that URL yet, but requires a local copy. I’m working on fixes for this."]], ["p", [], ["The interesting bits that connect Idyll’s reactive runtime to Observable’s can be\nfound ", ["a", [["href", ["value", "https://github.com/mathisonian/observable-idyll/blob/master/components/observable.js"]]], ["here"]], "."]], ["p", [], ["Full example code below:"]], ["pre", [], [["code", [], ["[var name:\"lineWidth\" value:5 /]\n[var name:\"height\" value:300 /]\n\nIdyll Variable Controls:\n\nLine Width: [Range value:lineWidth min:0 max:100 /]\nHeight: [Range value:height min:0 max:1000 /]\n\n[Observable\n  notebook:\"https://beta.observablehq.com/@mathisonian/d3-change-line-chart\"\n  showCells:`['chart', 'height']`\n  variables:`{\n    lineWidth: lineWidth,\n    height: height\n  }` /]"]]]]]]];
 
 },{}],"__IDYLL_COMPONENTS__":[function(require,module,exports){
 'use strict';
 
 module.exports = {
 	'header': require('/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/header.js'),
+	'link': require('/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/link.js'),
 	'range': require('/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/range.js'),
 	'observable': require('/Users/mathisonian/projects/observable-idyll/components/observable.js'),
 	'text-container': require('/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/text-container.js')
 };
 
-},{"/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/header.js":"/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/header.js","/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/range.js":"/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/range.js","/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/text-container.js":"/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/text-container.js","/Users/mathisonian/projects/observable-idyll/components/observable.js":"/Users/mathisonian/projects/observable-idyll/components/observable.js"}],"__IDYLL_CONTEXT__":[function(require,module,exports){
+},{"/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/header.js":"/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/header.js","/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/link.js":"/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/link.js","/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/range.js":"/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/range.js","/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/text-container.js":"/Users/mathisonian/projects/idyll/idyll/packages/idyll-components/dist/cjs/text-container.js","/Users/mathisonian/projects/observable-idyll/components/observable.js":"/Users/mathisonian/projects/observable-idyll/components/observable.js"}],"__IDYLL_CONTEXT__":[function(require,module,exports){
 "use strict";
 
 module.exports = function () {};
